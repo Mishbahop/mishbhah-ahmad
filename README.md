@@ -24,7 +24,7 @@ const mishbah = {
   hobbies: ["Coding", "Gaming", "Music", "AI Experiments"],
   quote: "Think Smart, Code Smarter 💻"
 };
-
+```
 console.log(mishbah);
 <div align="center"> <img src="https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.svg" width="100%" /> </div>
 🌐 Connect With Me
