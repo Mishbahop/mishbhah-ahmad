@@ -14,6 +14,7 @@
 
 
 ### 🧠 About Me
+```js
 const mishbah = {
   name: "Mishbah Ahmad",
   username: "Mishbahop",
