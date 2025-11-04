@@ -1,92 +1,53 @@
-from PIL import Image, ImageDraw, ImageFont
-import os, textwrap, random, math
-os.makedirs("/mnt/data/thumbnails", exist_ok=True)
+<img width="100%" title="TEAM - SRS" alt="mishbahop" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=250&section=header&text=ＭＩＳＨＢＡＨ－ＳＲＳ&fontSize=60&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Be%20Smart%20%7C%20Be%20Fearless&descAlignY=70&descAlign=50&descSize=20"/>
 
-def draw_matrix_thumb(filename, title, subtitle, accent="#00ff66", size=(640,320)):
-    w,h = size
-    img = Image.new("RGBA", size, (1,1,1,255))
-    draw = ImageDraw.Draw(img)
+<table border="0">
+ <tr>
+    <td>
+      <br>
+     <p align="center"><img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;+I'm+Mishbah+Ahmad;"/>
+     <img width="160" align="center" src="https://komarev.com/ghpvc/?username=Mishbahop&label=Profile%20Visitor&color=071A2C&style=for-the-badge" alt="Mishbahop"/>
+      <br>
+      <img width="280" align="center" src="https://github-widgetbox.vercel.app/api/profile?username=Mishbahop&data=followers,repositories,stars,commits&theme=viridescent"/>
+    <td>
+      <img alt="gif" src="https://raw.githubusercontent.com/U7P4L-IN/U7P4L-IN/refs/heads/master/assets/images/code.gif">
+   </td>  
+ </tr>  
+</table>
 
-    # Background gradient
-    for y in range(h):
-        t = y / h
-        r = int(1 + (0 - 1) * t)
-        g = int(2 + (34 - 2) * t)
-        b = int(1 + (1 - 1) * t)
-        draw.line([(0,y),(w,y)], fill=(r,g,b))
-    # Add semi-transparent glow
-    glow = Image.new("RGBA", size, (0,40,0,40))
-    img = Image.alpha_composite(img, glow)
+<h2 align="center"><img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="40"> MY INFORMATION :</h2>
 
-    # Draw matrix rain columns (binary and katakana-like)
-    cols = 12
-    for c in range(cols):
-        x = int((w/cols)*c + random.randint(-10,10))
-        y_start = random.randint(-300, -20)
-        speed = random.uniform(0.6, 1.4)
-        y = y_start
-        chs = ["01","10","11","00","ﾛ","ﾊ","ﾐ","ﾅ","ﾓ","ｴ","ｵ","ｲ","ﾊ","ｱ","ﾘ"]
-        for i in range(30):
-            # vary opacity and size
-            op = int(40 + (i*6))
-            font_size = int(10 + (i*0.6))
-            try:
-                font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", font_size)
-            except:
-                font = ImageFont.load_default()
-            ch = random.choice(chs)
-            y_pos = int(y + i * font_size * speed)
-            color = (0, min(255, 120 + op), 0, min(255, 60 + op))
-            draw.text((x, y_pos % (h+200) - 100), ch, font=font, fill=color)
-    
-    # Add title box with glitch lines
-    try:
-        title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 36)
-        sub_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", 16)
-    except:
-        title_font = ImageFont.load_default()
-        sub_font = ImageFont.load_default()
+```go
+const me = {
+  name: "Mishbah Ahmad",
+  username: "Mishbahop",
+  country: "India",
+  profession: ["Full Stack Developer", "AI Developer", "Web & App Developer"],
+  favoriteLanguages: ["HTML", "CSS", "JavaScript", "Python", "PHP", "React"],
+  hobbies: ["Coding", "Gaming", "Music", "Learning AI"],
 
-    # Add semi-transparent panel
-    panel_h = 90
-    panel = Image.new("RGBA", (w-80, panel_h), (0,0,0,150))
-    panel_draw = ImageDraw.Draw(panel)
-    # thin neon border
-    panel_draw.rectangle([0,0,w-80-1,panel_h-1], outline=(0,200,0,180))
-    img.paste(panel, (40, h - panel_h - 30), panel)
+  profile() {
+    return `Name: ${this.name}\nUsername: ${this.username}\nCountry: ${this.country}\nProfessions: ${this.profession.join(", ")}\nFavorite Languages: ${this.favoriteLanguages.join(", ")}\nHobbies: ${this.hobbies.join(", ")}`;
+  }
+};
 
-    # Draw title and subtitle on panel
-    tx = 60
-    ty = h - panel_h - 10
-    draw.text((tx, ty+10), title, font=title_font, fill=accent)
-    draw.text((tx, ty+52), subtitle, font=sub_font, fill=(160,220,160,255))
+console.log(me.profile());
+<p align="center"><img src="https://raw.githubusercontent.com/khoa083/khoa/main/Khoa_ne/img/Rainbow.gif" width="100%"></p>
+<img src='https://raw.githubusercontent.com/rahulbanerjee26/githubProfileReadmeGenerator/main/gifs/handShake.gif' width="50px" height=50px> Connect With Me
+<p align="center"> <a href="https://t.me/Mishbahop"><img title="Telegram" src="https://img.shields.io/badge/Telegram-%23000000.svg?&style=for-the-badge&logo=telegram&logoColor=green"></a> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mishbahop@gmail.com"><img title="GMAIL" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a> <a href="#"><img alt="Discord" title="Discord" src="https://img.shields.io/badge/-Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"/></a> <a href="https://youtube.com/@MechaMeow"><img alt="Youtube" title="Youtube" src="https://img.shields.io/badge/-Youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/></a> <a href="https://instagram.com/mishbahop"><img title="Instagram" src="https://img.shields.io/badge/instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white"></a> </p> <p align="center"><img src="https://raw.githubusercontent.com/khoa083/khoa/main/Khoa_ne/img/Rainbow.gif" width="100%"></p>
+🕒 Spent My Time
+<p align="center"> <a href="https://github.com/Mishbahop"> <img width="60%" src="https://github-readme-stats-taupe-two.vercel.app/api/wakatime?username=gautamkrishnar&hide_title=true&hide_border=true&langs_count=5&bg_color=00000000&text_color=777" /> <img width="30%" src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" /> </a> </p> <br> <p align="center"><a href="#"><img src="https://github.com/avinal/avinal/blob/main/images/stat.svg" alt="WakaTime Activity" align=center/></a></p> <p align="center"><img src="https://raw.githubusercontent.com/khoa083/khoa/main/Khoa_ne/img/Rainbow.gif" width="100%"></p>
+⚙️ My Favorite Tools and Technologies
+Tools and technologies that I have worked with and love exploring
 
-    # Add small repo badge area
-    badge = Image.new("RGBA", (160,34), (0,0,0,200))
-    bd = ImageDraw.Draw(badge)
-    bd.rectangle([0,0,159,33], outline=(0,150,0,180))
-    try:
-        bfont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", 14)
-    except:
-        bfont = ImageFont.load_default()
-    bd.text((8,6), "github.com/Mishbahop", font=bfont, fill=(120,255,120,255))
-    img.paste(badge, (w-180, h-54), badge)
+<p align="center"> <img src="https://skillicons.dev/icons?i=html,css,js,python,php,react,git,github,tailwind,bootstrap,linux,vscode,nodejs,mysql" /> </p> <p align="center"><img src="https://raw.githubusercontent.com/khoa083/khoa/main/Khoa_ne/img/Rainbow.gif" width="100%"></p>
+🏆 GitHub Trophies
+<p align="center"> <a href="https://github.com/Mishbahop"> <img width="49%" src="https://github-profile-trophy.vercel.app/?username=Mishbahop&theme=radical&no-frame=false&no-bg=true&margin-w=4" /> <img width="40%" src="https://holopin.me/amajaying3" /> </a> </p> <p align="center"><img src="https://raw.githubusercontent.com/khoa083/khoa/main/Khoa_ne/img/Rainbow.gif" width="100%"></p>
+📊 GitHub Profile Stats
+<p align="center"> <a href="https://github.com/Mishbahop"> <img width="32%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Mishbahop&theme=dark&border_radius=10&hide_title=true&layout=compact&langs_count=20" /> <img width="57%" src="https://github-readme-stats.vercel.app/api?username=Mishbahop&theme=dark&hide_border=false&include_all_commits=false&count_private=false" /> </a> </p>
+⚠️ Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
 
-    # Save PNG (optimize)
-    img.save(filename, optimize=True, quality=90)
-
-# Create three thumbnails
-thumbs = [
-    ("/mnt/data/thumbnails/project_ai_voice.png", "AI Voice Chatbot", "Speech -> Intent -> Action"),
-    ("/mnt/data/thumbnails/cyber_portfolio.png", "Cyber Portfolio", "Matrix-styled Personal Site"),
-    ("/mnt/data/thumbnails/game_engine.png", "Lightweight Game Engine", "2D physics + WebGL renderer")
-]
-
-for path, t, s in thumbs:
-    draw_matrix_thumb(path, t, s)
-
-# List files for user and provide paths
-files = os.listdir("/mnt/data/thumbnails")
-files_paths = [f"/mnt/data/thumbnails/{f}" for f in files]
-files_paths
-
+<p align="center"><img src="https://raw.githubusercontent.com/khoa083/khoa/main/Khoa_ne/img/Rainbow.gif" width="100%"></p>
+🔥 GitHub Activity
+<p align="center"> <a href="https://github.com/Mishbahop"> <img width="35%" src="https://github-contributor-stats.vercel.app/api?username=Mishbahop&limit=5&theme=dark&combine_all_yearly_contributions=true" /> <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=Mishbahop&theme=dark&hide_border=false" /> </a> </p> <p align="center"> <a href="https://github.com/Mishbahop"> <img width="50%" src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Mishbahop&theme=dark" /> <img width="40%" src="https://github-readme-activity-graph.vercel.app/graph?username=Mishbahop&bg_color=1a1b27&color=aa82d9&line=628edb&point=64bfaf&area=true&hide_border=true" /> </a> </p> <p align="center"><img src="https://raw.githubusercontent.com/U7P4L-IN/U7P4L-IN/5c6041b41eebbe672b36a5827eb964039d1bfbb8/assets/images/github-contribution-grid-snake.svg"></p> <p align="center"><img src="https://raw.githubusercontent.com/khoa083/khoa/main/Khoa_ne/img/Rainbow.gif" width="100%"></p>
+markdown
+Copy code
