@@ -1,39 +1,70 @@
-<h1 align="center">Hey 👋, I'm Mishbah Ahmad</h1>
-<h3 align="center">A passionate Full Stack Developer from India 🇮🇳</h3>
+<!-- 💀 Mishbah Ahmad | Cyber-Matrix Profile Mode -->
+<h1 align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Share+Tech+Mono&size=30&duration=3000&color=00FF00&center=true&vCenter=true&width=550&lines=Hey%2C+I'm+Mishbah+%F0%9F%91%8B;Creative+Coder+%7C+Gamer+%7C+Tech+Explorer;Be+Smart+But+Never+Show+It...+%F0%9F%92%8E" />
+</h1>
 
 ---
 
-### 🌟 About Me  
-- 🔭 I’m currently working on **AI + Web Projects**  
-- 🌱 Learning **Next.js, Firebase, and Voice AI**  
-- 🎮 Also run a YouTube Channel: [Mishbah Gaming](https://youtube.com/@MishbahGaming)  
-- ⚡ Fun fact: I love creating “Ultra Dev” style UIs 😎  
+<div align="center">
+  <img src="https://i.imgur.com/zYz4A6G.gif" width="90%" alt="Matrix Code Rain"/>
+</div>
 
 ---
 
-### 🚀 Languages and Tools  
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=html,css,js,react,nodejs,express,python,git,github,vscode" />
+### ⚡ About Me  
+
+💻 Full Stack Web Dev building sleek, intelligent interfaces with **HTML, CSS, JS, React, Node.js, Python, Firebase**  
+🎮 Gamer mindset: *Strategic, adaptive, unstoppable.*  
+🚀 Always exploring — always learning — always coding.  
+🧠 *“Be smart, but never show it.”*
+
+---
+
+### 💾 Tech Arsenal  
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=html,css,js,react,nodejs,python,firebase,vscode,git,github" />
 </p>
 
 ---
 
-### 📊 GitHub Stats  
-![Mishbah's GitHub stats](https://github-readme-stats.vercel.app/api?username=mishbah-ahmad&show_icons=true&theme=radical)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=mishbah-ahmad&layout=compact&theme=radical)
+### ⚙️ GitHub Analytics  
+
+<div align="center">
+
+![Mishbah's GitHub stats](https://github-readme-stats.vercel.app/api?username=Mishbahop&show_icons=true&theme=chartreuse-dark&hide_border=true&include_all_commits=true)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Mishbahop&layout=compact&theme=chartreuse-dark&hide_border=true)
+
+</div>
 
 ---
 
-### 🌀 Animated Typing Line  
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=25&color=00F700&center=true&vCenter=true&width=600&lines=Full+Stack+Developer;AI+Builder;Creative+Tech+Enthusiast;Loves+Coding+🔥)](https://git.io/typing-svg)
+### 🧩 Connect With Me  
+<p align="center">
+  <a href="https://youtube.com/@MishbahGaming">
+    <img src="https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white" />
+  </a>
+  <a href="https://instagram.com/">
+    <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=instagram&logoColor=white" />
+  </a>
+  <a href="https://Mishbahop.github.io">
+    <img src="https://img.shields.io/badge/Website-0A0A0A?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+</p>
 
 ---
 
-### 🌐 Connect with me  
-[![YouTube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube)](https://youtube.com/@MishbahGaming)
-[![Instagram](https://img.shields.io/badge/Instagram-ff0066?style=for-the-badge&logo=instagram)](https://instagram.com/)
-[![GitHub](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github)](https://github.com/mishbah-ahmad)
+### 🧠 Random Dev Quote  
+> *"Intelligence is not shown by words, but by silence, precision, and code."*
 
 ---
 
-⭐ **“Code like an Ultra Pro Max Developer 💻🔥”**
+### 🕶️ Signature Mode  
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Source+Code+Pro&weight=700&size=22&pause=1000&color=00FF00&center=true&vCenter=true&width=600&lines=//+Keep+your+code+clean;--+Keep+your+mind+sharper;Be+Smart+But+Never+Show+It+%F0%9F%92%8E">
+</p>
+
+---
+
+<div align="center">
+  <img src="https://komarev.com/ghpvc/?username=Mishbahop&color=00FF00&style=for-the-badge" />
+</div>
