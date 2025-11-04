@@ -1,3 +1,4 @@
+=== FILE: README.md ===
 <!-- ========== MISHBAHOP — Cyber/Matrix Ultra Profile ========== -->
 
 <!-- Capsule header (capsule-render API) -->
@@ -127,7 +128,7 @@ Below is the **dynamic block** the GitHub Action will replace every run.
 **Do not remove these markers** — the workflow looks precisely for `<!--STATUS-->` ... `<!--/STATUS-->`.
 
 <!--STATUS-->
-<p align="center">🧠 <strong>Currently learning:</strong> Your topic here &nbsp;|&nbsp; ⚙️ <strong>Last commit:</strong> none (waiting for first run)</p>
+<p align="center">🧠 <strong>Currently learning:</strong> AI Web Apps & Voice AI &nbsp;|&nbsp; ⚙️ <strong>Last commit:</strong> none (waiting for first run)</p>
 <!--/STATUS-->
 
 ---
@@ -141,8 +142,8 @@ Below is the **dynamic block** the GitHub Action will replace every run.
 
 ## 🔧 One-time Setup (do this now)
 1. In your repo `Mishbahop` create folder `assets/`.  
-2. Upload the two SVG files I provide (below) as `assets/header.svg` and `assets/matrix.svg`.  
-3. Create the workflow file `.github/workflows/update-status.yml` (content below).  
+2. Upload the two SVG files (below) as `assets/header.svg` and `assets/matrix.svg`.  
+3. Create the workflow file `.github/workflows/update-status.yml` with the content below.  
 4. Commit & push all files.  
 5. (Optional) Trigger the Action manually from the Actions tab (or wait up to 12 hours for the scheduled run).
 
@@ -153,3 +154,186 @@ Below is the **dynamic block** the GitHub Action will replace every run.
   <b>“Reality is coded. You just have to learn the syntax.”</b>
 </p>
 
+=== END README.md ===
+
+
+=== FILE: .github/workflows/update-status.yml ===
+name: Update Profile Status
+
+# schedule: every 12 hours (UTC)
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    env:
+      # change this to whatever you want the "Currently learning" text to be
+      LEARNING: "AI Web Apps & Voice AI"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git (for push)
+        run: |
+          git config --local user.email "actions@users.noreply.github.com"
+          git config --local user.name "GitHub Actions Bot"
+
+      - name: Get last commit info
+        id: commit
+        run: |
+          LAST_COMMIT=$(git log -1 --format="%h - %s" || echo "no commits")
+          LAST_TIME=$(git log -1 --format="%cr" || echo "no commits")
+          echo "last_commit=$LAST_COMMIT" >> $GITHUB_OUTPUT
+          echo "last_time=$LAST_TIME" >> $GITHUB_OUTPUT
+
+      - name: Update README dynamic status block
+        env:
+          LEARNING: ${{ env.LEARNING }}
+          LAST_COMMIT: ${{ steps.commit.outputs.last_commit }}
+          LAST_TIME: ${{ steps.commit.outputs.last_time }}
+        run: |
+          # Build the HTML status snippet into a temp file
+          cat > /tmp/new_status <<'HTML'
+<!--STATUS-->
+<p align="center">🧠 <strong>Currently learning:</strong> ${LEARNING} &nbsp;|&nbsp; ⚙️ <strong>Last commit:</strong> ${LAST_COMMIT} (${LAST_TIME})</p>
+<!--/STATUS-->
+HTML
+
+          # Replace existing <!--STATUS--> ... <!--/STATUS--> block with /tmp/new_status
+          python - "$GITHUB_WORKSPACE/README.md" "/tmp/new_status" <<'PY'
+import sys, re, pathlib
+readme_path = pathlib.Path(sys.argv[1])
+readme = readme_path.read_text(encoding='utf-8')
+new_block = pathlib.Path(sys.argv[2]).read_text(encoding='utf-8')
+if '<!--STATUS-->' in readme and '<!--/STATUS-->' in readme:
+    out = re.sub(r'<!--STATUS-->.*?<!--/STATUS-->', new_block, readme, flags=re.S)
+else:
+    out = readme + '\n\n' + new_block
+readme_path.write_text(out, encoding='utf-8')
+PY
+
+      - name: Commit & push README
+        run: |
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "No changes to push"
+          else
+            git commit -m "chore: auto-update dynamic README status"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+=== END .github/workflows/update-status.yml ===
+
+
+=== FILE: assets/header.svg ===
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="160" viewBox="0 0 1200 160" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#00FF00"/>
+      <stop offset="50%" stop-color="#9cff00"/>
+      <stop offset="100%" stop-color="#00ffd6"/>
+    </linearGradient>
+    <filter id="f" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="100%" height="100%" fill="#040404"/>
+
+  <!-- shadow copy for depth -->
+  <text x="50%" y="52%" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="42" fill="#001100" opacity="0.25">
+    Mishbahop — Creative Coder | Gamer | Tech Explorer
+  </text>
+
+  <!-- base neon -->
+  <text id="t" x="50%" y="50%" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="42" fill="url(#g)" filter="url(#f)" style="letter-spacing:1px">
+    Mishbahop — Creative Coder | Gamer | Tech Explorer
+  </text>
+
+  <!-- glitch layers -->
+  <text x="50%" y="50%" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="42" fill="#00ff66" style="mix-blend-mode:screen;opacity:0.9">
+    <animate attributeName="x" values="50%;49%;51%;50%" dur="3s" repeatCount="indefinite"/>
+  Mishbahop — Creative Coder | Gamer | Tech Explorer</text>
+
+  <text x="50%" y="50%" text-anchor="middle" font-family="Share Tech Mono, monospace" font-size="42" fill="#00ffd8" style="opacity:0.6">
+    <animate attributeName="x" values="50%;51%;49%;50%" dur="4s" repeatCount="indefinite"/>
+  Mishbahop — Creative Coder | Gamer | Tech Explorer</text>
+
+  <!-- scanline -->
+  <rect x="0" y="78" width="1200" height="2" fill="#002200" opacity="0.25">
+    <animate attributeName="x" from="-1200" to="1200" dur="6s" repeatCount="indefinite"/>
+  </rect>
+</svg>
+=== END assets/header.svg ===
+
+
+=== FILE: assets/matrix.svg ===
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid slice">
+  <rect width="100%" height="100%" fill="#010101"/>
+  <!-- create columns of characters with animated translate -->
+  <g font-family="monospace" font-size="14" fill="#00ff44" opacity="0.9">
+    <!-- Column template, copy/modify with different timings -->
+    <g transform="translate(60, -260)">
+      <text x="0" y="0">01 10 11 00 10 01 11 00 01 10</text>
+      <animateTransform attributeName="transform" type="translate" dur="6s"
+        values="60,-260;60,320" repeatCount="indefinite" />
+    </g>
+    <g transform="translate(160, -320)">
+      <text x="0" y="0">ﾛ ｱ ﾊ ﾐ ﾅ ﾓ ｴ ｵ ｲ ﾊ</text>
+      <animateTransform attributeName="transform" type="translate" dur="5.2s"
+        values="160,-320;160,320" repeatCount="indefinite" begin="0.4s"/>
+    </g>
+    <g transform="translate(260, -280)">
+      <text x="0" y="0">1010 0110 1001 1100 0101</text>
+      <animateTransform attributeName="transform" type="translate" dur="7s"
+        values="260,-280;260,320" repeatCount="indefinite" begin="0.8s"/>
+    </g>
+    <g transform="translate(360, -300)">
+      <text x="0" y="0">11 00 00 11 01 10 10 01 11</text>
+      <animateTransform attributeName="transform" type="translate" dur="5.6s"
+        values="360,-300;360,320" repeatCount="indefinite" begin="0.2s"/>
+    </g>
+    <g transform="translate(460, -260)">
+      <text x="0" y="0">01 01 11 00 10 00 11 10 01</text>
+      <animateTransform attributeName="transform" type="translate" dur="6.5s"
+        values="460,-260;460,320" repeatCount="indefinite" begin="0.6s"/>
+    </g>
+    <g transform="translate(560, -350)">
+      <text x="0" y="0">ﾛ ﾘ ﾐ ﾃ ﾅ ﾐ ｱ ｲ ﾊ ｵ</text>
+      <animateTransform attributeName="transform" type="translate" dur="8s"
+        values="560,-350;560,320" repeatCount="indefinite" begin="0.1s"/>
+    </g>
+    <g transform="translate(660, -270)">
+      <text x="0" y="0">1101 0011 0100 1010 1110</text>
+      <animateTransform attributeName="transform" type="translate" dur="5.9s"
+        values="660,-270;660,320" repeatCount="indefinite" begin="0.7s"/>
+    </g>
+    <g transform="translate(760, -300)">
+      <text x="0" y="0">01 10 01 11 00 10 01 11 00</text>
+      <animateTransform attributeName="transform" type="translate" dur="6.2s"
+        values="760,-300;760,320" repeatCount="indefinite" begin="0.3s"/>
+    </g>
+    <g transform="translate(860, -320)">
+      <text x="0" y="0">ﾓ ﾊ ｲ ﾛ ｴ ﾝ ｽ ﾃ ｶ</text>
+      <animateTransform attributeName="transform" type="translate" dur="7.3s"
+        values="860,-320;860,320" repeatCount="indefinite" begin="0.5s"/>
+    </g>
+    <g transform="translate(960, -280)">
+      <text x="0" y="0">1001 1100 0101 0011 1010</text>
+      <animateTransform attributeName="transform" type="translate" dur="6.8s"
+        values="960,-280;960,320" repeatCount="indefinite" begin="0.9s"/>
+    </g>
+  </g>
+
+  <!-- subtle glow overlay -->
+  <rect width="100%" height="100%" fill="url(#fade)" opacity="0.03"/>
+</svg>
+=== END assets/matrix.svg ===
