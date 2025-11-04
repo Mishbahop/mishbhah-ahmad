@@ -122,26 +122,34 @@ Creative Coder · Gamer · Tech Explorer
 
 ---
 
+## 🔧 Dynamic Status (auto-updated)
+Below is the **dynamic block** the GitHub Action will replace every run.  
+**Do not remove these markers** — the workflow looks precisely for `<!--STATUS-->` ... `<!--/STATUS-->`.
+
+<!--STATUS-->
+<p align="center">🧠 <strong>Currently learning:</strong> Your topic here &nbsp;|&nbsp; ⚙️ <strong>Last commit:</strong> none (waiting for first run)</p>
+<!--/STATUS-->
+
+---
+
 ## 🧾 Quick Notes & Reliability Fixes
-- I removed the `include_all_commits` flag from the stats to avoid the **Could not fetch total commits** error. If you want full commit counts & private commits reliably, self-host `github-readme-stats` (I can provide one-click Vercel steps).
-- All large GIFs were replaced by the lightweight `assets/header.svg` and `assets/matrix.svg` which animate inside README and are much faster.
-- Third-party widgets (activity graph, widgetbox) may occasionally be slow — they act as decorative extras. Core data (stats & languages) use `github-readme-stats` which is stable without commit-count flags.
+- I removed `include_all_commits` flags to avoid the “Could not fetch total commits” error.  
+- Upload `assets/header.svg` and `assets/matrix.svg` (provided below) to `assets/` in this repo.  
+- The Action uses the repository's `GITHUB_TOKEN` to commit — no personal tokens required for the scheduled updates.
 
 ---
 
 ## 🔧 One-time Setup (do this now)
 1. In your repo `Mishbahop` create folder `assets/`.  
-2. Upload these two files into `assets/`:
-   - `header.svg` (the animated glitchy header I gave earlier)
-   - `matrix.svg` (the lightweight matrix rain SVG I gave earlier)
-3. Paste this README into `README.md`, commit and push.  
-4. Open `https://github.com/Mishbahop` and refresh.
+2. Upload the two SVG files I provide (below) as `assets/header.svg` and `assets/matrix.svg`.  
+3. Create the workflow file `.github/workflows/update-status.yml` (content below).  
+4. Commit & push all files.  
+5. (Optional) Trigger the Action manually from the Actions tab (or wait up to 12 hours for the scheduled run).
 
 ---
 
-If you want I’ll **also**:
-- A) Generate 3 custom project thumbnails for your featured repos (PNG) and provide the exact README snippet to show them as clickable cards.  
-- B) Give you the **Vercel commands** (one-liners) to self-host `github-readme-stats` with `GITHUB_TOKEN` for guaranteed stats & private counts.  
-- C) Create a GitHub Action that auto-updates a dynamic “status” card daily (last deploy, mood, currently learning).
+## Footer
+<p align="center">
+  <b>“Reality is coded. You just have to learn the syntax.”</b>
+</p>
 
-Pick any combo (A/B/C) and I’ll deliver immediately — plus I can paste the git commands to add these files locally if you want.
